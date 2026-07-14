@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 26 42 68; /* #1A2A44 */
+    --color-accent: 244 124 60; /* #F47C3C */
+    --color-background: 247 241 230; /* #F7F1E6 */
+    --color-surface: 225 232 236; /* #E1E8EC */
+    --color-dark: 17 24 39;
+  }
+  
+  body {
+    @apply bg-[rgb(var(--color-background))] text-[rgb(var(--color-primary))] antialiased font-body;
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans;
+  }
+}
+
+@layer utilities {
+  .font-drama {
+    font-family: 'Cormorant Garamond', serif;
+  }
+  .font-mono-data {
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Noise Overlay */
+  .noise-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.05;
+  }
+}
+
+/* Micro-Interactions */
+.magnetic-btn {
+  @apply relative overflow-hidden transition-transform duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] active:scale-95;
+}
+.magnetic-btn:hover {
+  transform: scale(1.03);
+}
+
+.hover-slide-bg {
+  @apply absolute inset-0 transition-transform duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] translate-y-full;
+}
+.magnetic-btn:hover .hover-slide-bg {
+  @apply translate-y-0;
+}
+
+.link-hover {
+  @apply inline-block transition-transform duration-300 ease-out hover:-translate-y-[1px];
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-[rgb(var(--color-primary))]/20 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-[rgb(var(--color-primary))]/40;
+}

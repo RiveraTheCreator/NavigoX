@@ -481,7 +481,7 @@ const WaitlistModal = ({ onClose }) => {
     e.preventDefault();
     setStatus('loading');
     try {
-      await fetch('https://mi-n8n-n8n.4u5ow8.easypanel.host/webhook/5697252c-cb3b-421b-b83f-2c208e34195a', {
+      await fetch('https://mi-n8n-n8n.4u5ow8.easypanel.host/webhook/navigo-x', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
